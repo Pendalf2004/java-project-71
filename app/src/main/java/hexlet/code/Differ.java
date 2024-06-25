@@ -4,8 +4,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
 
 public class Differ {
 
@@ -22,7 +22,8 @@ public class Differ {
                 .stream()
                 .sorted()
                 .forEach((key) -> {
-                    if (firstFileData.containsKey(key) && (secondFileData.containsKey(key)) && (firstFileData.get(key).equals(secondFileData.get(key)))) {
+                    if (firstFileData.containsKey(key) && (secondFileData.containsKey(key))
+                            && (firstFileData.get(key).equals(secondFileData.get(key)))) {
                         resultString[0] += "    " + key + ": " + firstFileData.get(key) + "\n";
                     } else if ((firstFileData.containsKey(key) && (secondFileData.containsKey(key)))) {
                         resultString[0] += "  - " + key + ": " + firstFileData.get(key) + "\n";
