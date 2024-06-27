@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -43,6 +44,10 @@ public class Differ {
         Path path = Paths.get(filePath).toAbsolutePath().normalize();
         if (!Files.exists(path)) {
             throw new Exception("File '" + path + "' does not exist");
+        }
+        File file = new File(path.toUri());
+        if (file.length() == 0) {
+            return new HashMap<String, Object>();
         }
         return mapper.readValue(Files.readAllBytes(path), Map.class);
     }
