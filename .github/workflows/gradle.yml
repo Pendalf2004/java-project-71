@@ -13,6 +13,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+defaults:
+  run:
+    working-directory: ./app
+
+
 jobs:
   build:
 
@@ -38,6 +43,7 @@ jobs:
 
     - name: Init gradle wrapper
       run: gradle wrapper
+      
 
     - name: Change wrapper permissions
       run: chmod +x ./gradlew
