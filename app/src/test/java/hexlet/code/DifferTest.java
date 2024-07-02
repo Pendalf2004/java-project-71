@@ -15,15 +15,15 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOf
 // import static org.junit.jupiter.api.Assertions.*;
 
 class DifferTest {
-    private static final String emptyFileName = "empty.java";
-    private static final String dataFileName = "file2.java";
-    private static final String resDir = "src/test/resources";
+    private static final String EMTY_FILE_NAME = "empty.java";
+    private static final String DATA_FILE_NAME = "file2.java";
+    private static final String RES_FOLDER = "src/test/resources";
     private static Map<String, Object> testMap = new HashMap<>();
 
     @BeforeAll
     static void beforeAll() throws IOException {
-        File emptyFile = new File(resDir + emptyFileName);
-        File dataFile = new File(resDir + dataFileName);
+        File emptyFile = new File(RES_FOLDER + EMTY_FILE_NAME);
+        File dataFile = new File(RES_FOLDER + DATA_FILE_NAME);
         emptyFile.createNewFile();
         dataFile.createNewFile();
         testMap.put("timeout", 20);
@@ -35,27 +35,27 @@ class DifferTest {
 
     @AfterAll
     static void afterAll() {
-        Path empty = Path.of(resDir + emptyFileName);
+        Path empty = Path.of(RES_FOLDER + EMTY_FILE_NAME);
         empty.toFile().delete();
-        Path data = Path.of(resDir + dataFileName);
+        Path data = Path.of(RES_FOLDER + DATA_FILE_NAME);
         data.toFile().delete();
     }
 
     @Test
     void generateEmptyTest() throws Exception {
-        assertThat(Differ.generate(resDir + emptyFileName, resDir + emptyFileName)).isEqualTo("{\n}");
+        assertThat(Differ.generate(RES_FOLDER + EMTY_FILE_NAME, RES_FOLDER + EMTY_FILE_NAME)).isEqualTo("{\n}");
     }
 
     @Test
     void generateWith1Empty() throws Exception {
         String assertionWithEmptyFile1 = "{\n  - host: hexlet.io\n  - timeout: 20\n  - verbose: true\n}";
-        assertThat(Differ.generate(resDir + dataFileName, resDir + emptyFileName)).isEqualTo(assertionWithEmptyFile1);
+        assertThat(Differ.generate(RES_FOLDER + DATA_FILE_NAME, RES_FOLDER + EMTY_FILE_NAME)).isEqualTo(assertionWithEmptyFile1);
     }
 
     @Test
     void generateWith2Empty() throws Exception {
         String assertionWithEmptyFile2 = "{\n  + host: hexlet.io\n  + timeout: 20\n  + verbose: true\n}";
-        assertThat(Differ.generate(resDir + emptyFileName, resDir + dataFileName)).isEqualTo(assertionWithEmptyFile2);
+        assertThat(Differ.generate(RES_FOLDER + EMTY_FILE_NAME, RES_FOLDER + DATA_FILE_NAME)).isEqualTo(assertionWithEmptyFile2);
 
     }
 
@@ -63,6 +63,6 @@ class DifferTest {
     void parseFile() throws Exception {
 //      assertThat(Differ.parseFile(emptyFilePath)).isEqualTo(new HashMap<String, Object>());
         assertThatExceptionOfType(IOException.class).isThrownBy(() -> Differ.parseFile(""));
-        assertThat(Differ.parseFile(resDir + dataFileName)).isEqualTo(testMap);
+        assertThat(Differ.parseFile(RES_FOLDER + DATA_FILE_NAME)).isEqualTo(testMap);
     }
 }
