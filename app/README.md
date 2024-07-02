@@ -1,7 +1,9 @@
 ## File diff tool
 
 This console app allows to compare 2 files and output the differences.
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/486235e1928faf00551b/maintainability)](https://codeclimate.com/github/Pendalf2004/java-project-71/maintainability) ![](https://github.com/Pendalf2004/java-project-71/actions/workflows/WORKFLOW-FILE/badge.svg)
+[![Java CI with Gradle](https://github.com/Pendalf2004/java-project-71/actions/workflows/gradle.yml/badge.svg)](https://github.com/Pendalf2004/java-project-71/actions/workflows/gradle.yml)
 
 `make run-dist` to launch
 
