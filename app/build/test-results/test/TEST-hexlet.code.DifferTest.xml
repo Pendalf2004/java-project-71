@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hexlet.code.DifferTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-07-02T11:26:18" hostname="john-Lenovo-ideapad-310-15ISK" time="0.337">
+<testsuite name="hexlet.code.DifferTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-07-02T11:35:32" hostname="john-Lenovo-ideapad-310-15ISK" time="0.396">
   <properties/>
-  <testcase name="parseFile()" classname="hexlet.code.DifferTest" time="0.308"/>
+  <testcase name="parseFile()" classname="hexlet.code.DifferTest" time="0.367"/>
   <testcase name="generate()" classname="hexlet.code.DifferTest" time="0.025"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
