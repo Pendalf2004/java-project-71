@@ -49,13 +49,15 @@ class DifferTest {
     @Test
     void generateWith1Empty() throws Exception {
         String assertionWithEmptyFile1 = "{\n  - host: hexlet.io\n  - timeout: 20\n  - verbose: true\n}";
-        assertThat(Differ.generate(RES_FOLDER + DATA_FILE_NAME, RES_FOLDER + EMTY_FILE_NAME)).isEqualTo(assertionWithEmptyFile1);
+        assertThat(Differ.generate(RES_FOLDER + DATA_FILE_NAME, RES_FOLDER + EMTY_FILE_NAME)).
+                isEqualTo(assertionWithEmptyFile1);
     }
 
     @Test
     void generateWith2Empty() throws Exception {
         String assertionWithEmptyFile2 = "{\n  + host: hexlet.io\n  + timeout: 20\n  + verbose: true\n}";
-        assertThat(Differ.generate(RES_FOLDER + EMTY_FILE_NAME, RES_FOLDER + DATA_FILE_NAME)).isEqualTo(assertionWithEmptyFile2);
+        assertThat(Differ.generate(RES_FOLDER + EMTY_FILE_NAME, RES_FOLDER + DATA_FILE_NAME)).
+                isEqualTo(assertionWithEmptyFile2);
 
     }
 
