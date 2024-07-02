@@ -16,12 +16,20 @@ class DifferTest {
     private final String file2Path = "/home/john/gitDir/java-project-71/app/src/test/resources/file2.java";
 
     @Test
-    void generate() throws Exception {
+    void generateEmptyTest() throws Exception {
         assertThat(Differ.generate(emptyFilePath, emptyFilePath)).isEqualTo("{\n}");
-        String assertionWithEmptyFole1 = "{\n  - host: hexlet.io\n  - timeout: 20\n  - verbose: true\n}";
-        assertThat(Differ.generate(file2Path, emptyFilePath)).isEqualTo(assertionWithEmptyFole1);
-        assertionWithEmptyFole1 = "{\n  + host: hexlet.io\n  + timeout: 20\n  + verbose: true\n}";
-        assertThat(Differ.generate(emptyFilePath, file2Path)).isEqualTo(assertionWithEmptyFole1);
+    }
+
+    @Test
+    void generateWith1Empty() throws Exception {
+        String assertionWithEmptyFile1 = "{\n  - host: hexlet.io\n  - timeout: 20\n  - verbose: true\n}";
+        assertThat(Differ.generate(file2Path, emptyFilePath)).isEqualTo(assertionWithEmptyFile1);
+    }
+
+    @Test
+    void generateWith2Empty() throws Exception {
+        String assertionWithEmptyFile2 = "{\n  + host: hexlet.io\n  + timeout: 20\n  + verbose: true\n}";
+        assertThat(Differ.generate(emptyFilePath, file2Path)).isEqualTo(assertionWithEmptyFile2);
 
     }
 
