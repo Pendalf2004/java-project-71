@@ -32,7 +32,7 @@ jobs:
     - name: Init gradle wrapper
       run: gradle wrapper
 
-    - name: Build with Gradle
+    - name: build
       run: ./gradlew build
     
     #- name: test
@@ -44,5 +44,4 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST }}
       with:
-        coverageCommand: gradle test
-    
+        coverageCommand: build
