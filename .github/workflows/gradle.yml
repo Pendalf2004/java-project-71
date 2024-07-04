@@ -35,10 +35,10 @@ jobs:
     - name: build
       run: ./gradlew build
   
-    - name: Test Coverage  
-      uses: paambaati/codeclimate-action@v5.0.0
-      env:
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST }}
-      with:
-        coverageCommand: ${{github.workspace}}/app/gradlew test
+    #- name: Test Coverage  
+    #  uses: paambaati/codeclimate-action@v5.0.0
+    #  env:
+    #    CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST }}
+    #  with:
+    #    coverageCommand: ${{github.workspace}}/app/gradlew test
         #coverageLocations: ${{github.workspace}}/app
