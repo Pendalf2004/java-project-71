@@ -40,5 +40,5 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST }}
       with:
-        coverageCommand: ./gradlew test
-        coverageLocations: ${{github.workspace}}/app
+        coverageCommand: ${{github.workspace}}/app/gradlew test
+        #coverageLocations: ${{github.workspace}}/app
