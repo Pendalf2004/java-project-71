@@ -34,14 +34,10 @@ jobs:
 
     - name: build
       run: ./gradlew build
-    
-    #- name: test
-    #  run: gradle test
-
   
     - name: Test Coverage  
       uses: paambaati/codeclimate-action@v5.0.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST }}
       with:
-        coverageCommand: build
+        coverageCommand: ./gradlew test
