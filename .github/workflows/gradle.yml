@@ -41,4 +41,4 @@ jobs:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST }}
       with:
         coverageLocations: ${{github.workspace}}/app
-        coverageCommand: ./gradlew test
+        coverageCommand: ./gradlew jacocoTestReport
