@@ -43,7 +43,7 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST }}
       with:
-        coverageLocations: ${{github.workspace}}/app/covarage.xml:jacoco
+        coverageLocations: ${{github.workspace}}app/src/test/resources/covarage.xml:jacoco
         coverageCommand: ./gradlew jacocoTestReport
 
 
