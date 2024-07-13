@@ -29,9 +29,10 @@ tasks.jacocoTestReport {
 
 tasks.jacocoTestReport {
     reports {
-        xml.required = false
+        xml.required = true
+        xml.outputLocation = file(application.executableDir.toString() + File.separator.toString() + "coverage.xml")
         csv.required = false
-        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+        html.required = false
     }
 }
 
