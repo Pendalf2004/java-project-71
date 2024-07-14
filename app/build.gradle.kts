@@ -30,8 +30,8 @@ tasks.jacocoTestReport {
 tasks.jacocoTestReport {
     reports {
         xml.required = true
-        xml.outputLocation = file(
-            application.executableDir + "/src/test/resources/coverage.xml")
+        //xml.outputLocation = file(
+        //    application.executableDir + "build/reports/jacoco/test/" + "jacocoTestCoverageReport")
         csv.required = false
         html.required = false
     }
