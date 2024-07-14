@@ -41,7 +41,8 @@ jobs:
     - name: Test Coverage  
       uses: paambaati/codeclimate-action@v2.7.1
       env:
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST }}
+        CC_TEST_REPORTER_ID: ff44d9af835bac9ce21bc6297c30ab3a7e0e70533c653bd501ec66e1201af182
+        JACOCO_SOURCE_PATH: app/src/main/java
       with:
         coverageLocations: ${{github.workspace}}app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
         coverageCommand: ./gradlew jacocoTestReport
