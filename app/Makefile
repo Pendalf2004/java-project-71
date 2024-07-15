@@ -1,8 +1,8 @@
 run-dist:
 	./build/install/app/bin/app
-run-help:
+help:
 	./build/install/app/bin/app -h
-run-version:
+version:
 	./build/install/app/bin/app -V
 run-default:
 	./build/install/app/bin/app /home/john/gitDir/java-project-71/app/src/test/resources/file1.java /home/john/gitDir/java-project-71/app/src/test/resources/file2.java
@@ -32,10 +32,6 @@ report:
 
 lint:
 	./gradlew checkstyleMain
-
-check-deps:
-	./gradlew dependencyUpdates -Drevision=release
-
 
 build-run: build run
 
