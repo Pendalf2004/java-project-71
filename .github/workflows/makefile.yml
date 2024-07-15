@@ -1,5 +1,4 @@
 name: Makefile CI
-name: Java CI with Gradle
 
 on:
   push:
