@@ -7,11 +7,9 @@ This console app allows to compare 2 files and output the differences.
 
 `make run-dist` to launch
 
-`make run-help` to show help
+`make help` to show help
 
-`make run-version` to show version
-
-`make run-default` to compare default files
+`make version` to show version
 
 #### Mandatory arguments 
 file paths to comparable files
