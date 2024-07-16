@@ -22,7 +22,7 @@ class DifferTest {
 
     @BeforeAll
     static void beforeAll() throws IOException {
-        File emptyFile = new File(RES_FOLDER + EMTY_FILE_NAME);
+        File emptyFile = new File(RES_FOLDER + "empty.java");
         File dataFile = new File(RES_FOLDER + DATA_FILE_NAME);
         emptyFile.createNewFile();
         dataFile.createNewFile();
@@ -35,7 +35,7 @@ class DifferTest {
 
     @AfterAll
     static void afterAll() {
-        Path empty = Path.of(RES_FOLDER + EMTY_FILE_NAME);
+        Path empty = Path.of(RES_FOLDER + "empty.java");
         empty.toFile().delete();
         Path data = Path.of(RES_FOLDER + DATA_FILE_NAME);
         data.toFile().delete();
@@ -43,20 +43,20 @@ class DifferTest {
 
     @Test
     void generateEmptyTest() throws Exception {
-        assertThat(Differ.generate(RES_FOLDER + EMTY_FILE_NAME, RES_FOLDER + EMTY_FILE_NAME)).isEqualTo("{\n}");
+        assertThat(Differ.generate(RES_FOLDER + "empty.java", RES_FOLDER + "empty.java")).isEqualTo("{\n}");
     }
 
     @Test
     void generateWith1Empty() throws Exception {
         String assertionWithEmptyFile1 = "{\n  - host: hexlet.io\n  - timeout: 20\n  - verbose: true\n}";
-        assertThat(Differ.generate(RES_FOLDER + DATA_FILE_NAME, RES_FOLDER + EMTY_FILE_NAME)).
+        assertThat(Differ.generate(RES_FOLDER + DATA_FILE_NAME, RES_FOLDER + "empty.java")).
                 isEqualTo(assertionWithEmptyFile1);
     }
 
     @Test
     void generateWith2Empty() throws Exception {
         String assertionWithEmptyFile2 = "{\n  + host: hexlet.io\n  + timeout: 20\n  + verbose: true\n}";
-        assertThat(Differ.generate(RES_FOLDER + EMTY_FILE_NAME, RES_FOLDER + DATA_FILE_NAME)).
+        assertThat(Differ.generate(RES_FOLDER + "empty.java", RES_FOLDER + DATA_FILE_NAME)).
                 isEqualTo(assertionWithEmptyFile2);
 
     }
@@ -68,3 +68,4 @@ class DifferTest {
         assertThat(Differ.parseFile(RES_FOLDER + DATA_FILE_NAME)).isEqualTo(testMap);
     }
 }
+
