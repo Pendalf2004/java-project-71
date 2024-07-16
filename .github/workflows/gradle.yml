@@ -8,9 +8,8 @@ on:
 
 defaults:
   run:
-    working-directory: ./app/
-
-
+    working-directory: ./app
+  
 jobs:
   build:
 
@@ -45,5 +44,6 @@ jobs:
         JACOCO_SOURCE_PATH: ${{github.workspace}}/app/src/main/java
       with:
         coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
+        working-directory: ./app
         coverageCommand: make report
 #make -C app report
