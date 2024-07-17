@@ -3,7 +3,6 @@ package hexlet.code;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
-//import java.nio.file.Paths;
 import java.util.HashMap;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
@@ -23,7 +22,7 @@ public class Parser {
         }
 
         //getting file extension
-        String ext = filePath.substring(filePath.lastIndexOf('.')+ 1 );
+        String ext = filePath.substring(filePath.lastIndexOf('.') + 1);
 
         //parse file content into map, depending on file type and returns result
         switch (ext) {
@@ -39,5 +38,4 @@ public class Parser {
         //mandatory return for method. returning empty map
         return new HashMap<>();
     }
-
 }

@@ -17,7 +17,7 @@ public class Differ {
         //checking if both files exists
         File file1 = new File(normiliseFirstPath);
         File file2 = new File(normiliseSecondPath);
-        if (!file1.isFile()||!file2.isFile()) {
+        if (!file1.isFile() || !file2.isFile()) {
             throw new IOException("File does not exist");
         }
 
@@ -53,5 +53,4 @@ public class Differ {
         //returning resulting string
         return resultString[0];
     }
-
 }
