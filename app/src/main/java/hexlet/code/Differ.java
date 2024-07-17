@@ -1,22 +1,35 @@
 package hexlet.code;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
 
 public class Differ {
 
     public static String generate(String firstFile, String secondFile) throws Exception {
-        Map<String, Object> firstFileData = parseFile(firstFile);
-        Map<String, Object> secondFileData = parseFile(secondFile);
 
+        //normalizing recived file paths
+        String normiliseFirstPath = String.valueOf(Paths.get(firstFile).toAbsolutePath().normalize());
+        String normiliseSecondPath = String.valueOf(Paths.get(secondFile).toAbsolutePath().normalize());
+
+        //checking if both files exists
+        File file1 = new File(normiliseFirstPath);
+        File file2 = new File(normiliseSecondPath);
+        if (!file1.isFile()||!file2.isFile()) {
+            throw new IOException("File does not exist");
+        }
+
+        //Parsing files to Map
+        Map<String, Object> firstFileData = Parser.parseFile(normiliseFirstPath);
+        Map<String, Object> secondFileData = Parser.parseFile(normiliseSecondPath);
+
+        //combining both files data into one map
         HashMap<String, Object> resultMap = new HashMap<>(firstFileData);
         resultMap.putAll(secondFileData);
 
+        //sorting map and form a resulting string
         String[] resultString = new String[1];
         resultString[0] = "{\n";
         resultMap.keySet()
@@ -36,19 +49,9 @@ public class Differ {
                     }
                 });
         resultString[0] += "}";
+
+        //returning resulting string
         return resultString[0];
     }
 
-    public static Map<String, Object> parseFile(String filePath) throws Exception {
-        var mapper = new ObjectMapper();
-        Path path = Paths.get(filePath).toAbsolutePath().normalize();
-        if (!Files.exists(path)) {
-            throw new Exception("File '" + path + "' does not exist");
-        }
-        File file = new File(path.toUri());
-        if (file.length() == 0) {
-            return new HashMap<String, Object>();
-        }
-        return mapper.readValue(Files.readAllBytes(path), Map.class);
-    }
 }
