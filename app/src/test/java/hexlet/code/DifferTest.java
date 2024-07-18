@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
-// import static org.junit.jupiter.api.Assertions.*;
 
 class DifferTest {
     private static final String RES_FOLDER = "src/test/resources/";
@@ -22,6 +21,7 @@ class DifferTest {
     static void beforeAll() throws IOException {
 
         //creating files for test
+
         //empty java file
         File emptyFileJAVA = new File(RES_FOLDER + "empty.java");
         emptyFileJAVA.createNewFile();
@@ -65,12 +65,16 @@ class DifferTest {
 
     @Test
     void generateEmptyTest() throws Exception {
+
+        //comparing empty files
         assertThat(Differ.generate(RES_FOLDER + "empty.java", RES_FOLDER + "empty.java")).isEqualTo("{\n}");
         assertThat(Differ.generate(RES_FOLDER + "empty.yaml", RES_FOLDER + "empty.yaml")).isEqualTo("{\n}");
     }
 
     @Test
-    void generateWith1Empty() throws Exception {
+    void generateWithSecondEmpty() throws Exception {
+
+        //comparing with second file empty
         String assertionWithEmptyFile1 = "{\n  - host: hexlet.io\n  - timeout: 20\n  - verbose: true\n}";
         assertThat(Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "empty.java")).
                 isEqualTo(assertionWithEmptyFile1);
@@ -80,7 +84,9 @@ class DifferTest {
     }
 
     @Test
-    void generateWith2Empty() throws Exception {
+    void generateWithFirstEmpty() throws Exception {
+
+        //comparing with first file empty
         String assertionWithEmptyFile2 = "{\n  + host: hexlet.io\n  + timeout: 20\n  + verbose: true\n}";
         assertThat(Differ.generate(RES_FOLDER + "empty.java", RES_FOLDER + "data.java")).
                 isEqualTo(assertionWithEmptyFile2);
@@ -90,7 +96,8 @@ class DifferTest {
 
     @Test
     void parseFile() throws Exception {
-//      assertThat(Differ.parseFile(emptyFilePath)).isEqualTo(new HashMap<String, Object>());
+
+        //sending empty filename
         assertThatExceptionOfType(IOException.class).isThrownBy(() -> Differ.generate("", ""));
         assertThat(Parser.parseFile(RES_FOLDER + "data.java")).isEqualTo(testMap);
         assertThatExceptionOfType(IOException.class).isThrownBy(() -> Differ.generate("", "empty.yaml"));
