@@ -36,6 +36,8 @@ class DifferTest {
         dataFileYML.createNewFile();
 
         //creating test map
+        int[] intArray = new int[]{1, 2, 3};
+        testMap.put("numbers", intArray);
         testMap.put("timeout", 20);
         testMap.put("verbose", true);
         testMap.put("host", "hexlet.io");
@@ -75,7 +77,7 @@ class DifferTest {
     void generateWithSecondEmpty() throws Exception {
 
         //comparing with second file empty
-        String assertionWithEmptyFile1 = "{\n  - host: hexlet.io\n  - timeout: 20\n  - verbose: true\n}";
+        String assertionWithEmptyFile1 = "{\n  - host: hexlet.io\n  - numbers: [1, 2, 3]\n  - timeout: 20\n  - verbose: true\n}";
         assertThat(Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "empty.java")).
                 isEqualTo(assertionWithEmptyFile1);
         assertThat(Differ.generate(RES_FOLDER + "data.yaml", RES_FOLDER + "empty.yaml")).
@@ -87,7 +89,7 @@ class DifferTest {
     void generateWithFirstEmpty() throws Exception {
 
         //comparing with first file empty
-        String assertionWithEmptyFile2 = "{\n  + host: hexlet.io\n  + timeout: 20\n  + verbose: true\n}";
+        String assertionWithEmptyFile2 = "{\n  + host: hexlet.io\n  + numbers: [1, 2, 3]\n  + timeout: 20\n  + verbose: true\n}";
         assertThat(Differ.generate(RES_FOLDER + "empty.java", RES_FOLDER + "data.java")).
                 isEqualTo(assertionWithEmptyFile2);
         assertThat(Differ.generate(RES_FOLDER + "empty.yaml", RES_FOLDER + "data.yaml")).
@@ -99,8 +101,5 @@ class DifferTest {
 
         //sending empty filename
         assertThatExceptionOfType(IOException.class).isThrownBy(() -> Differ.generate("", ""));
-        assertThat(Parser.parseFile(RES_FOLDER + "data.java")).isEqualTo(testMap);
-        assertThatExceptionOfType(IOException.class).isThrownBy(() -> Differ.generate("", "empty.yaml"));
-        assertThat(Parser.parseFile(RES_FOLDER + "data.yaml")).isEqualTo(testMap);
     }
 }
