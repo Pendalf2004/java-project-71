@@ -12,19 +12,16 @@ public class Parser {
 
     public static Map<String, Object> parseFile(String filePath) throws Exception {
 
-        //creating tmp variables for easier work with file
+    //creating tmp variables for easier work with file
         Path path = Path.of(filePath);
         File file = new File(path.toUri());
-
-        //checking if a file is empty. Returning an empty map if so
+    //checking if a file is empty. Returning an empty map if so
         if (file.length() == 0) {
             return new HashMap<String, Object>();
         }
-
-        //getting file extension
+    //getting file extension
         String ext = filePath.substring(filePath.lastIndexOf('.') + 1);
-
-        //parse file content into map, depending on file type and returns result
+    //parse file content into map, depending on file type and returns result
         switch (ext) {
             case "java":
                 var mapper = new ObjectMapper();
@@ -32,10 +29,13 @@ public class Parser {
             case "yaml":
                 var mapperYAML = new YAMLMapper();
                 return mapperYAML.readValue(Files.readAllBytes(path), Map.class);
+            case "yml":
+                var mapperYML = new YAMLMapper();
+                return mapperYML.readValue(Files.readAllBytes(path), Map.class);
             default:
                 System.out.println("Unsupported format");
         }
-        //mandatory return for method. returning empty map
+    //mandatory return for method. returning empty map
         return new HashMap<>();
     }
 }
