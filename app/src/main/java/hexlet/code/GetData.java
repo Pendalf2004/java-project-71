@@ -34,7 +34,7 @@ public class GetData {
     public static boolean isValidFile(Object input) {
         var supportedExt = Set.of("java", "yml", "yaml");
         try {
-            return ((Path.of(input.toString()).toFile().exists())
+            return ((Path.of(input.toString()).toFile().getAbsoluteFile().exists())
                     && (supportedExt.contains(GetData.getExtension(input.toString()))));
         } catch (InvalidPathException | NullPointerException ex) {
             return false;

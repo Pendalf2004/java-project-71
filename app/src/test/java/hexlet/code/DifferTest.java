@@ -7,7 +7,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 
 class DifferTest {
-    private static final String RES_FOLDER = "src/test/resources/";
+    private static final String RES_FOLDER = System.getProperty("user.dir") + "/src/test/resources/";
 
     @Test
     void stylishFormatTest() throws Exception {
