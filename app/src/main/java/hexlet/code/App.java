@@ -18,8 +18,8 @@ public class App implements Callable<Integer> {
     @Parameters(index = "1", description = "path to second file")
     private static String filepath2;
 
-    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
-    private String format = "stylish";
+    @Option(names = {"-f", "--format"}, defaultValue = "123", description = "output format ${DEFAULT-VALUE}")
+    private static String format;
 
     @Override
     public Integer call() throws Exception {

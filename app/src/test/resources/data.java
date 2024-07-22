@@ -1,0 +1,1 @@
+{"file":"/home/john/gitDir/java-project-71/app/src/test/resources/data2.java","numbers":[1,2,3],"host":"hexlet.io","verbose":false}
