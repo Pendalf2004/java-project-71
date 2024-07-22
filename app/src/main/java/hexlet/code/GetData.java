@@ -10,11 +10,11 @@ import java.util.Set;
 //read file class
 public class GetData {
 
-    public static String readFile (String filePath) throws Exception {
+    public static String readFile(String filePath) throws Exception {
     //check if valid file name
-    if (!isValidFile(filePath)) {
-        throw new Exception("Invalid file path");
-    }
+        if (!isValidFile(filePath)) {
+            throw new Exception("Invalid file path");
+        }
     //normalizing received file paths
         Path path = Path.of(filePath);
         String normiliseFirstPath = String.valueOf(path.toAbsolutePath().normalize());
@@ -34,8 +34,8 @@ public class GetData {
     public static boolean isValidFile(Object input) {
         var supportedExt = Set.of("java", "yml", "yaml");
         try {
-            return ((Path.of(input.toString()).toFile().exists()) &&
-                    (supportedExt.contains(GetData.getExtension(input.toString()))));
+            return ((Path.of(input.toString()).toFile().exists())
+                    && (supportedExt.contains(GetData.getExtension(input.toString()))));
         } catch (InvalidPathException | NullPointerException ex) {
             return false;
         }

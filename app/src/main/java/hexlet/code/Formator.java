@@ -6,11 +6,11 @@ import java.util.Map;
 
 public class Formator {
 
-    public static String stylish (Map<String, Fields> inputMap) {
+    public static String stylish(Map<String, Fields> inputMap) {
         return Stylish.form(inputMap);
     }
 
-    public static String plain (Map<String, Fields> inputMap) {
+    public static String plain(Map<String, Fields> inputMap) {
         return Plain.form(inputMap);
     }
 }

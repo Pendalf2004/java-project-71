@@ -7,18 +7,18 @@ public class Fields {
 //field for the second file value(null if key is absent in the second file)
     public Object newValue;
 //value change status
-    public enum status {
+    public enum STATUS {
         UNCHANGED,
         REMOVED,
         ADDED,
         CHANGED
     }
-    public status keyStatus;
+    public STATUS keyStatus;
 
     public Fields(Object value1, Object value2) {
         this.oldValue = value1;
         this.newValue = value2;
-        this.keyStatus = status.UNCHANGED;
+        this.keyStatus = STATUS.UNCHANGED;
     }
 
     public Fields() {
