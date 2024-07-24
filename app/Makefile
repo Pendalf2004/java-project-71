@@ -10,5 +10,7 @@ test:
 	./gradlew test
 report:
 	./gradlew jacocoTestReport
+build:
+	./gradlew build
 
 .PHONY: build
