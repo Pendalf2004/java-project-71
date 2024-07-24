@@ -15,19 +15,7 @@ public class Differ {
     //compare two files and receive resulting map with differences
         var diffMap = DataCompare.getDiff(firstFileMap, secondFileMap);
     //return formated string
-        switch (format) {
-            case "stylish" -> {
-                return Formator.stylish(diffMap);
-            }
-            case "plain" -> {
-                return Formator.plain(diffMap);
-            }
-            case "json" -> {
-                return Formator.json(diffMap);
-            }
-            default -> {
-                return Formator.stylish(diffMap);
-            }
-        }
+        return Formator.getString(diffMap, format);
+
     }
 }

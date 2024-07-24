@@ -25,11 +25,10 @@ class DifferTest {
 
     @Test
     void jsonFormatTest() throws Exception {
-        Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "data2.java", "json");
-        var pathToJson = Path.of(System.getProperty("user.dir") + "/src/main/resources/output.json");
-        assertThat(Files.exists(pathToJson));
-        assertThat(Files.size(pathToJson) > 0);
-        Files.deleteIfExists(pathToJson);
+        assertThat(Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "data2.java", "json")).
+                isEqualTo(Files.readString(Path.of(RES_FOLDER + "stylish.tst")));
+        assertThat(Differ.generate(RES_FOLDER + "data.yaml", RES_FOLDER + "data2.yaml", "json")).
+                isEqualTo(Files.readString(Path.of(RES_FOLDER + "stylish.tst")));
     }
 
 }
