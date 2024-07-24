@@ -32,7 +32,7 @@ jobs:
       run: gradle wrapper
 
     - name: build
-      run: make build
+      run: make -C app build
 
     - name: test
       run: make -C app test
