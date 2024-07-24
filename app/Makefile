@@ -14,3 +14,4 @@ build:
 	./gradlew build
 
 .PHONY: build
+.PHONY: test
