@@ -23,16 +23,13 @@ public class Plain {
                     } else {
                         tmpField.newValue = "'" + tmpField.newValue + "'";
                     }
-                //я не понял какой должен быть вывод, если ключ есть в обоих файлах и значение не изменилось
                     switch (inputMap.get(key).keyStatus) {
                         case ADDED -> plainString.append("Property '" + key + "' was added with value: "
                                 + tmpField.newValue + "\n");
                         case REMOVED -> plainString.append("Property '" + key + "' was removed\n");
-                        case UNCHANGED -> plainString.append("    " + key + ": " + inputMap.get(key).oldValue
-                                + "\n");
                         case CHANGED -> plainString.append("Property '" + key + "' was updated. From "
                                 + tmpField.oldValue + " to " + tmpField.newValue + "\n");
-                        default -> plainString.append("\n");
+                        default -> plainString.append("");
                     }
                 });
         return plainString.toString();
@@ -40,7 +37,6 @@ public class Plain {
 
     private static boolean isNotSimpleClass(Object value) {
     //check if an object is of primitive class or String
-    //наверное можно как то проще
         if (value == null) {
             return false;
         }

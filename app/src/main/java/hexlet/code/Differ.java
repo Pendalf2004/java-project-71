@@ -22,6 +22,9 @@ public class Differ {
             case "plain" -> {
                 return Formator.plain(diffMap);
             }
+            case "json" -> {
+                return Formator.json(diffMap);
+            }
             default -> {
                 return Formator.stylish(diffMap);
             }

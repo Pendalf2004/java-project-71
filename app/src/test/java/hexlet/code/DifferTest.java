@@ -18,7 +18,19 @@ class DifferTest {
     }
 
     @Test
-    void parseFile() {
-        assertThatExceptionOfType(Exception.class).isThrownBy(() -> Differ.generate("", "", "stylish"));
+    void plainFormatTest() throws Exception {
+        assertThat(Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "data2.java", "plain")).
+                isEqualTo(Files.readString(Path.of(RES_FOLDER + "plain.tst")));
+        assertThat(Differ.generate(RES_FOLDER + "data.yaml", RES_FOLDER + "data2.yaml", "plain")).
+                isEqualTo(Files.readString(Path.of(RES_FOLDER + "plain.tst")));
     }
+    @Test
+    void jsonFormatTest() throws Exception {
+        Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "data2.java", "json");
+        var pathToJson = Path.of(System.getProperty("user.dir") + "/src/main/resources/output.json");
+        assertThat(Files.exists(pathToJson));
+        assertThat(Files.size(pathToJson) > 0);
+        Files.deleteIfExists(pathToJson);
+    }
+
 }

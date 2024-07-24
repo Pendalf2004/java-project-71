@@ -18,7 +18,7 @@ public class Fields {
     public Fields(Object value1, Object value2) {
         this.oldValue = value1;
         this.newValue = value2;
-        this.keyStatus = STATUS.UNCHANGED;
+        this.keyStatus = STATUS.CHANGED;
     }
 
     public Fields() {
