@@ -5,7 +5,7 @@ help:
 version:
 	./build/install/app/bin/app -V
 run-default:
-	./build/install/app/bin/app -f plain /home/john/gitDir/java-project-71/app/src/test/resources/data.java /home/john/gitDir/java-project-71/app/src/test/resources/data2.java
+	./build/install/app/bin/app /home/john/gitDir/java-project-71/app/src/test/resources/data.java /home/john/gitDir/java-project-71/app/src/test/resources/data2.java
 test:
 	./gradlew test
 report:
