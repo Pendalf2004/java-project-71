@@ -7,7 +7,7 @@ public class DataCompare {
     //comparing received file Maps
     public static Map<String, Fields> getDiff(Map<String, Object> firstData, Map<String, Object> secondData) {
     /*creating resulting map
-     (key - keys from file,
+     (key - keys from files,
      Fields - oldValue - value from first file
             - newValue - value from second file
             - keyStatus - what happened with value)*/
