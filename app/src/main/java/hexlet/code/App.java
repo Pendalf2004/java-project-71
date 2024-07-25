@@ -23,7 +23,11 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        System.out.println(Differ.generate(filepath1, filepath2, format));
+        if (format != null && !format.isEmpty()) {
+            System.out.println(Differ.generate(filepath1, filepath2, format));
+        } else {
+            System.out.println(Differ.generate(filepath1, filepath2, "stylish"));
+        }
         return 0;
     }
 

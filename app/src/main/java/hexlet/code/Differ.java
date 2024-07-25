@@ -14,6 +14,5 @@ public class Differ {
         var diffMap = DataCompare.getDiff(firstFileMap, secondFileMap);
     //return formated string
         return Formator.getString(diffMap, format);
-
     }
 }
