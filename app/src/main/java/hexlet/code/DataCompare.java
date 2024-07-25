@@ -2,6 +2,7 @@ package hexlet.code;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class DataCompare {
     //comparing received file Maps
@@ -26,7 +27,7 @@ public class DataCompare {
                 tmpFields.keyStatus = Fields.STATUS.ADDED;
             }
             if (tmpFields.keyStatus == Fields.STATUS.CHANGED) {
-                if (tmpFields.oldValue.equals(tmpFields.newValue)) {
+                if (Objects.equals(tmpFields.oldValue, tmpFields.newValue)) {
                     tmpFields.keyStatus = Fields.STATUS.UNCHANGED;
                 }
             }
