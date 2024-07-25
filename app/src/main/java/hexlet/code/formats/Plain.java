@@ -16,8 +16,8 @@ public class Plain {
 
                     if (GetData.isValidFile(tmpField.oldValue) || isNotSimpleClass(tmpField.oldValue)) {
                         tmpField.oldValue = "[complex value]";
-                    } else if (tmpField.newValue instanceof String) {
-                        tmpField.newValue = "'" + tmpField.newValue + "'";
+                    } else if (tmpField.oldValue instanceof String) {
+                        tmpField.oldValue = "'" + tmpField.oldValue + "'";
                     }
                     if (GetData.isValidFile(tmpField.newValue) || isNotSimpleClass(tmpField.newValue)) {
                         tmpField.newValue = "[complex value]";
@@ -33,7 +33,7 @@ public class Plain {
                         default -> plainString.append("");
                     }
                 });
-        return plainString.toString();
+        return plainString.substring(0, plainString.toString().length() - 1);
     }
 
     private static boolean isNotSimpleClass(Object value) {
