@@ -19,10 +19,10 @@ public class DataCompare {
         keyMap.keySet().forEach(key -> {
     //creating tmp value variable
             Fields tmpFields = new Fields(firstData.get(key), secondData.get(key));
-            if (secondData.getOrDefault(key, "no such key").equals("no such key")) {
+            if (secondData.getOrDefault(key, "no such key").toString().equals("no such key")) {
                 tmpFields.keyStatus = Fields.STATUS.REMOVED;
             }
-            if (firstData.getOrDefault(key, "no such key").equals("no such key")) {
+            if (firstData.getOrDefault(key, "no such key").toString().equals("no such key")) {
                 tmpFields.keyStatus = Fields.STATUS.ADDED;
             }
             if (firstData.getOrDefault(key, "no such key in the first file").equals(
