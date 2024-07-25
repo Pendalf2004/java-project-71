@@ -13,8 +13,6 @@ public class Stylish {
                 .sorted()
                 .forEach(key -> {
                     Fields tmpFields = inputMap.get(key);
-        //вот тут я сомневаюсь по поводу обращения к другому классу. Возможно можно как то реализовать проверку
-                    //вынеся обращение к файлу из класса
                     if (GetData.isValidFile(tmpFields.oldValue)) {
                         try {
                             tmpFields.oldValue = getFileString(tmpFields.oldValue.toString());
@@ -24,7 +22,7 @@ public class Stylish {
                     }
                     if (GetData.isValidFile(tmpFields.newValue)) {
                         try {
-                            tmpFields.oldValue = getFileString(tmpFields.newValue.toString());
+                            tmpFields.newValue = getFileString(tmpFields.newValue.toString());
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
