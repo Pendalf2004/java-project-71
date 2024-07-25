@@ -15,13 +15,9 @@ public class Plain {
                     var tmpField = inputMap.get(key);
                     if (GetData.isValidFile(tmpField.oldValue) || isNotSimpleClass(tmpField.oldValue)) {
                         tmpField.oldValue = "[complex value]";
-                    } else {
-                        tmpField.oldValue = "'" + tmpField.oldValue + "'";
                     }
                     if (GetData.isValidFile(tmpField.newValue) || isNotSimpleClass(tmpField.newValue)) {
                         tmpField.newValue = "[complex value]";
-                    } else {
-                        tmpField.newValue = "'" + tmpField.newValue + "'";
                     }
                     switch (inputMap.get(key).keyStatus) {
                         case ADDED -> plainString.append("Property '" + key + "' was added with value: "
