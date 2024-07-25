@@ -17,19 +17,19 @@ public class DataCompare {
         keyMap.putAll(secondData);
     //fill the map
         keyMap.keySet().forEach(key -> {
-    //creating tmp value variable
+            //creating tmp value variable
             Fields tmpFields = new Fields(firstData.get(key), secondData.get(key));
-            if ((secondData.get(key) != null) && (
-                    secondData.getOrDefault(key, "no such key").toString().equals("no such key"))) {
+            if ((firstData.containsKey(key)) && !(secondData.containsKey(key))) {
                 tmpFields.keyStatus = Fields.STATUS.REMOVED;
             }
-            if ((firstData.get(key) != null) && (
-                    firstData.getOrDefault(key, "no such key").toString().equals("no such key"))) {
+            if (!(firstData.containsKey(key)) && (secondData.containsKey(key))) {
                 tmpFields.keyStatus = Fields.STATUS.ADDED;
             }
-            if (firstData.getOrDefault(key, "no such key in the first file").equals(
-                    secondData.getOrDefault(key, "no such key in the second file"))) {
-                tmpFields.keyStatus = Fields.STATUS.UNCHANGED;
+            if (tmpFields.keyStatus == Fields.STATUS.CHANGED) {
+                if (((firstData.get(key) == null) && (secondData.get(key) == null)) || (
+                        firstData.get(key).equals(secondData.get(key)))) {
+                    tmpFields.keyStatus = Fields.STATUS.UNCHANGED;
+                }
             }
             resultMap.put(key, tmpFields);
         });

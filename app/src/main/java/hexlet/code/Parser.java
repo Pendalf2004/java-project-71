@@ -20,7 +20,6 @@ public class Parser {
             case "java", "json" -> {
                 var mapper = new ObjectMapper();
                 return mapper.readValue(fileContent, stringObjectMap);
-
             }
             case "yaml", "yml" -> {
                 var mapperYAML = new YAMLMapper();
