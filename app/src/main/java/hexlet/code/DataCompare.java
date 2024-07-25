@@ -26,7 +26,7 @@ public class DataCompare {
                 tmpFields.keyStatus = Fields.STATUS.ADDED;
             }
             if (tmpFields.keyStatus == Fields.STATUS.CHANGED) {
-                if (tmpFields.newValue.hashCode() == tmpFields.oldValue.hashCode()) {
+                if (tmpFields.newValue.equals(tmpFields.oldValue)) {
                     tmpFields.keyStatus = Fields.STATUS.UNCHANGED;
                 }
             }
