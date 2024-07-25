@@ -13,16 +13,15 @@ public class Plain {
                 .sorted()
                 .forEach(key -> {
                     var tmpField = inputMap.get(key);
+
                     if (GetData.isValidFile(tmpField.oldValue) || isNotSimpleClass(tmpField.oldValue)) {
                         tmpField.oldValue = "[complex value]";
-                    }
-                    if (tmpField.oldValue instanceof String) {
-                        tmpField.oldValue = "'" + tmpField.oldValue + "'";
+                    } else if (tmpField.newValue instanceof String) {
+                        tmpField.newValue = "'" + tmpField.newValue + "'";
                     }
                     if (GetData.isValidFile(tmpField.newValue) || isNotSimpleClass(tmpField.newValue)) {
                         tmpField.newValue = "[complex value]";
-                    }
-                    if (tmpField.newValue instanceof String) {
+                    } else if (tmpField.newValue instanceof String) {
                         tmpField.newValue = "'" + tmpField.newValue + "'";
                     }
                     switch (inputMap.get(key).keyStatus) {
