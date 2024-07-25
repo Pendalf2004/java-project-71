@@ -27,7 +27,7 @@ public class DataCompare {
             }
             if (tmpFields.keyStatus == Fields.STATUS.CHANGED) {
                 if (((firstData.get(key) == null) && (secondData.get(key) == null)) || (
-                        firstData.get(key).equals(secondData.get(key)))) {
+                        firstData.getOrDefault(key, "1").equals(secondData.getOrDefault(key, "2")))) {
                     tmpFields.keyStatus = Fields.STATUS.UNCHANGED;
                 }
             }
