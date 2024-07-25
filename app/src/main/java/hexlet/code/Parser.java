@@ -17,7 +17,7 @@ public class Parser {
         TypeReference<HashMap<String, Object>> stringObjectMap
                 = new TypeReference<HashMap<String, Object>>() { };
         switch (fileType) {
-            case "java" -> {
+            case "java", "json" -> {
                 var mapper = new ObjectMapper();
                 return mapper.readValue(fileContent, stringObjectMap);
 
