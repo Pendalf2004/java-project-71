@@ -17,8 +17,8 @@ checkstyle {
 
 dependencies {
 
-    checkstyle "com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}"
-    checkstyle "group:artifact:version"
+    checkstyle ("com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}")
+ //   checkstyle ("group:artifact:version")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
