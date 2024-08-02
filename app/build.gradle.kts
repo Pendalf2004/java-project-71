@@ -15,9 +15,21 @@ checkstyle {
     toolVersion = "10.12.4"
 }
 
+tasks.withType<Checkstyle>().configureEach {
+    config = resources.text.fromFile("${project.rootProject.rootDir.path}/${System.getProperty("checkstyleInputDir")}/checkstyle.xml");
+    configDirectory.set(file("${project.rootProject.rootDir.path}/${System.getProperty("checkstyleInputDir")}"));
+    ignoreFailures = true;
+    reports {
+        xml.required.set(true);
+        html.required.set(false);
+    }
+    exclude("**/module-info.java");
+}
+
 dependencies {
 
     checkstyle ("com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}")
+
  //   checkstyle ("group:artifact:version")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
