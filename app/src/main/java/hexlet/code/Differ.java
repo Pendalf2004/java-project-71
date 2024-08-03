@@ -14,7 +14,7 @@ public class Differ {
     //return formated string
         return Formator.getString(diffMap, format);
     }
-    public static String generate(String firstFile, String secondFile) throws Exception {
-        return generate(firstFile, secondFile, "stylish");
-    }
+//    public static String generate(String firstFile, String secondFile) throws Exception {
+//        return generate(firstFile, secondFile, "stylish");
+//    }
 }

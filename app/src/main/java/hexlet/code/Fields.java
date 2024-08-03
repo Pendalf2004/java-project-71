@@ -21,7 +21,6 @@ public class Fields {
         this.keyStatus = STATUS.CHANGED;
     }
 
-    public Fields() {
-
-    }
+    //    public Fields() {
+    //}
 }
