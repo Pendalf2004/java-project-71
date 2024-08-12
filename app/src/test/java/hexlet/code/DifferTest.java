@@ -10,14 +10,14 @@ class DifferTest {
 
     @Test
     void plainFormatTest() throws Exception {
-        assertThat(Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "data2.java", "plain")).
+        assertThat(Differ.generate(RES_FOLDER + "data.json", RES_FOLDER + "data2.json", "plain")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "plain.tst")));
         assertThat(Differ.generate(RES_FOLDER + "data.yaml", RES_FOLDER + "data2.yaml", "plain")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "plain.tst")));
     }
 /*    @Test
     void stylishFormatTest() throws Exception {
-        assertThat(Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "data2.java", "stylish")).
+        assertThat(Differ.generate(RES_FOLDER + "data.json", RES_FOLDER + "data2.json", "stylish")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "stylish.tst")));
         assertThat(Differ.generate(RES_FOLDER + "data.yaml", RES_FOLDER + "data2.yaml", "stylish")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "stylish.tst")));
@@ -25,7 +25,7 @@ class DifferTest {
 
     @Test
     void jsonFormatTest() throws Exception {
-        assertThat(Differ.generate(RES_FOLDER + "data.java", RES_FOLDER + "data2.java", "json")).
+        assertThat(Differ.generate(RES_FOLDER + "data.json", RES_FOLDER + "data2.json", "json")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "json.tst")));
         assertThat(Differ.generate(RES_FOLDER + "data.yaml", RES_FOLDER + "data2.yaml", "json")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "json.tst")));
