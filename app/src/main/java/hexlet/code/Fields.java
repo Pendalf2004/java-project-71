@@ -1,5 +1,5 @@
 package hexlet.code;
-public class Fields {
+public final class Fields {
     public enum STATUS {
         UNCHANGED,
         REMOVED,
