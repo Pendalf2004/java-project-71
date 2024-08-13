@@ -14,22 +14,22 @@ public class Plain {
                 .forEach(key -> {
                     var tmpField = inputMap.get(key);
 
-                    if (GetData.isValidFile(tmpField.oldValue) || isNotSimpleClass(tmpField.oldValue)) {
-                        tmpField.oldValue = "[complex value]";
-                    } else if (tmpField.oldValue instanceof String) {
-                        tmpField.oldValue = "'" + tmpField.oldValue + "'";
+                    if (GetData.isValidFile(tmpField.getOldValue()) || isNotSimpleClass(tmpField.getOldValue())) {
+                        tmpField.setOldValue("[complex value]");
+                    } else if (tmpField.getOldValue() instanceof String) {
+                        tmpField.setOldValue("'" + tmpField.getOldValue() + "'");
                     }
-                    if (GetData.isValidFile(tmpField.newValue) || isNotSimpleClass(tmpField.newValue)) {
-                        tmpField.newValue = "[complex value]";
-                    } else if (tmpField.newValue instanceof String) {
-                        tmpField.newValue = "'" + tmpField.newValue + "'";
+                    if (GetData.isValidFile(tmpField.getNewValue()) || isNotSimpleClass(tmpField.getNewValue())) {
+                        tmpField.setNewValue("[complex value]");
+                    } else if (tmpField.getNewValue() instanceof String) {
+                        tmpField.setNewValue("'" + tmpField.getNewValue() + "'");
                     }
-                    switch (inputMap.get(key).keyStatus) {
+                    switch (inputMap.get(key).getKeyStatus()) {
                         case ADDED -> plainString.append("Property '" + key + "' was added with value: "
-                                + tmpField.newValue + "\n");
+                                + tmpField.getNewValue() + "\n");
                         case REMOVED -> plainString.append("Property '" + key + "' was removed\n");
                         case CHANGED -> plainString.append("Property '" + key + "' was updated. From "
-                                + tmpField.oldValue + " to " + tmpField.newValue + "\n");
+                                + tmpField.getOldValue() + " to " + tmpField.getNewValue() + "\n");
                         default -> plainString.append("");
                     }
                 });

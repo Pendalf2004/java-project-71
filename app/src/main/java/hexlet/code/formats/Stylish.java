@@ -6,34 +6,39 @@ import hexlet.code.Parser;
 import java.util.Map;
 
 public class Stylish {
+
     public static String form(Map<String, Fields> inputMap) {
         StringBuilder stylishString = new StringBuilder("{\n");
         inputMap.keySet()
                 .stream()
                 .sorted()
                 .forEach(key -> {
-                    Fields tmpFields = inputMap.get(key);
-                    if (GetData.isValidFile(tmpFields.oldValue)) {
+                    var tmpFields = inputMap.get(key);
+                    if (GetData.isValidFile(tmpFields.getOldValue())) {
                         try {
-                            tmpFields.oldValue = getFileString(tmpFields.oldValue.toString());
+                            tmpFields.setOldValue(getFileString(tmpFields.getOldValue().toString()));
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
                     }
-                    if (GetData.isValidFile(tmpFields.newValue)) {
+                    if (GetData.isValidFile(tmpFields.getNewValue())) {
                         try {
-                            tmpFields.newValue = getFileString(tmpFields.newValue.toString());
+                            tmpFields.setNewValue(getFileString(tmpFields.getNewValue().toString()));
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
                     }
 
-                    switch (tmpFields.keyStatus) {
-                        case ADDED -> stylishString.append("  + " + key + ": " + inputMap.get(key).newValue + "\n");
-                        case REMOVED -> stylishString.append("  - " + key + ": " + inputMap.get(key).oldValue + "\n");
-                        case UNCHANGED -> stylishString.append("    " + key + ": " + inputMap.get(key).oldValue + "\n");
-                        case CHANGED -> stylishString.append("  - " + key + ": " + inputMap.get(key).oldValue + "\n"
-                                + "  + " + key + ": " + inputMap.get(key).newValue + "\n");
+                    switch (tmpFields.getKeyStatus()) {
+                        case ADDED -> stylishString.append(
+                                "  + " + key + ": " + inputMap.get(key).getNewValue() + "\n");
+                        case REMOVED -> stylishString.append(
+                                "  - " + key + ": " + inputMap.get(key).getOldValue() + "\n");
+                        case UNCHANGED -> stylishString.append(
+                                "    " + key + ": " + inputMap.get(key).getOldValue() + "\n");
+                        case CHANGED -> stylishString.append(
+                                "  - " + key + ": " + inputMap.get(key).getOldValue() + "\n"
+                                + "  + " + key + ": " + inputMap.get(key).getNewValue() + "\n");
                         default -> stylishString.append("\n");
                     }
                 });

@@ -22,14 +22,14 @@ public class DataCompare {
             //creating tmp value variable
             Fields tmpFields = new Fields(firstDataSet.get(key), secondDataSet.get(key));
             if ((firstDataSet.containsKey(key)) && !(secondDataSet.containsKey(key))) {
-                tmpFields.keyStatus = Fields.STATUS.REMOVED;
+                tmpFields.setKeyStatus(Fields.STATUS.REMOVED);
             }
             if (!(firstDataSet.containsKey(key)) && (secondDataSet.containsKey(key))) {
-                tmpFields.keyStatus = Fields.STATUS.ADDED;
+                tmpFields.setKeyStatus(Fields.STATUS.ADDED);
             }
-            if (tmpFields.keyStatus == Fields.STATUS.CHANGED) {
-                if (Objects.equals(tmpFields.oldValue, tmpFields.newValue)) {
-                    tmpFields.keyStatus = Fields.STATUS.UNCHANGED;
+            if (tmpFields.getKeyStatus() == Fields.STATUS.CHANGED) {
+                if (Objects.equals(tmpFields.getOldValue(), tmpFields.getNewValue())) {
+                    tmpFields.setKeyStatus(Fields.STATUS.UNCHANGED);
                 }
             }
             resultMap.put(key, tmpFields);
