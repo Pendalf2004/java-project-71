@@ -1,7 +1,7 @@
 package hexlet.code.formats;
 
+import hexlet.code.Differ;
 import hexlet.code.Fields;
-import hexlet.code.GetData;
 import java.util.Map;
 import java.util.Set;
 
@@ -14,12 +14,12 @@ public class Plain {
                 .forEach(key -> {
                     var tmpField = inputMap.get(key);
 
-                    if (GetData.isValidFile(tmpField.getOldValue()) || isNotSimpleClass(tmpField.getOldValue())) {
+                    if (Differ.isValidFile(tmpField.getOldValue()) || isNotSimpleClass(tmpField.getOldValue())) {
                         tmpField.setOldValue("[complex value]");
                     } else if (tmpField.getOldValue() instanceof String) {
                         tmpField.setOldValue("'" + tmpField.getOldValue() + "'");
                     }
-                    if (GetData.isValidFile(tmpField.getNewValue()) || isNotSimpleClass(tmpField.getNewValue())) {
+                    if (Differ.isValidFile(tmpField.getNewValue()) || isNotSimpleClass(tmpField.getNewValue())) {
                         tmpField.setNewValue("[complex value]");
                     } else if (tmpField.getNewValue() instanceof String) {
                         tmpField.setNewValue("'" + tmpField.getNewValue() + "'");
@@ -37,7 +37,6 @@ public class Plain {
     }
 
     private static boolean isNotSimpleClass(Object value) {
-    //check if an object is of primitive class or String
         if (value == null) {
             return false;
         }

@@ -1,3 +1,4 @@
-Property 'file' was removed
-Property 'timeout' was added with value: 20
-Property 'verbose' was updated. From false to true
+Property 'file' was added with value: [complex value]
+Property 'host' was added with value: 'hexlet.io'
+Property 'numbers' was added with value: [complex value]
+Property 'verbose' was added with value: false

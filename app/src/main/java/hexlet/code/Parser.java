@@ -10,7 +10,6 @@ import java.util.Map;
 public class Parser {
 
     public static Map<String, Object> parseData(String fileContent, String fileType) throws Exception {
-    //checking if a string is empty. Returning an empty map if so
         if (fileContent.isEmpty()) {
             return new HashMap<String, Object>();
         }

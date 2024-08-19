@@ -1,7 +1,7 @@
 package hexlet.code.formats;
 
+import hexlet.code.Differ;
 import hexlet.code.Fields;
-import hexlet.code.GetData;
 import hexlet.code.Parser;
 import java.util.Map;
 
@@ -14,14 +14,14 @@ public class Stylish {
                 .sorted()
                 .forEach(key -> {
                     var tmpFields = inputMap.get(key);
-                    if (GetData.isValidFile(tmpFields.getOldValue())) {
+                    if (Differ.isValidFile(tmpFields.getOldValue())) {
                         try {
                             tmpFields.setOldValue(getFileString(tmpFields.getOldValue().toString()));
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
                     }
-                    if (GetData.isValidFile(tmpFields.getNewValue())) {
+                    if (Differ.isValidFile(tmpFields.getNewValue())) {
                         try {
                             tmpFields.setNewValue(getFileString(tmpFields.getNewValue().toString()));
                         } catch (Exception e) {
@@ -46,7 +46,7 @@ public class Stylish {
     }
 
     private static String getFileString(String filePath) throws Exception {
-        return Parser.parseData(GetData.readFile(filePath), GetData.getExtension(filePath)).toString();
+        return Parser.parseData(Differ.readFile(filePath), Differ.getExtension(filePath)).toString();
     }
 
 }
