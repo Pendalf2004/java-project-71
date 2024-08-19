@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@SuppressWarnings({})
 class DifferTest {
     private static final String RES_FOLDER = System.getProperty("user.dir") + "/src/test/resources/";
 
