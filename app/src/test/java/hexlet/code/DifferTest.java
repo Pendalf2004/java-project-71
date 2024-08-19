@@ -16,6 +16,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class DifferTest {
     private static final String RES_FOLDER = System.getProperty("user.dir") + "/src/test/resources/";
     private static final int INT_VALUE = 20;
+    private static final int[] ARRAY_VALUE = new int[]{1, 2, 3};
     @BeforeAll
     static void generateExpected() throws Exception {
         File dataFileJAVA = new File(RES_FOLDER + "file1.java");
@@ -30,8 +31,7 @@ class DifferTest {
         anotherDataFileJAVA.createNewFile();
 
         var testMap = new HashMap<String, Object>();
-        int[] intArray = new int[]{1, 2, 3};
-        testMap.put("numbers", intArray);
+        testMap.put("numbers", ARRAY_VALUE);
         testMap.put("timeout", INT_VALUE);
         testMap.put("verbose", true);
         testMap.put("host", "hexlet.io");
