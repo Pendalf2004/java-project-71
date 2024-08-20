@@ -19,15 +19,15 @@ class DifferTest {
     private static final int[] ARRAY_VALUE = new int[]{1, 2, 3};
     @BeforeAll
     static void generateExpected() throws Exception {
-        File dataFileJAVA = new File(RES_FOLDER + "file1.java");
+        File dataFileJAVA = new File(RES_FOLDER + "file1.yaml");
         dataFileJAVA.createNewFile();
-        File anotherDataFileJAVA = new File(RES_FOLDER + "file2.java");
+        File anotherDataFileJAVA = new File(RES_FOLDER + "file2.yaml");
         anotherDataFileJAVA.createNewFile();
         File dataFileYML = new File(RES_FOLDER + "file1.yaml");
         dataFileYML.createNewFile();
         File anotherDataFileYML = new File(RES_FOLDER + "file2.yaml");
         anotherDataFileYML.createNewFile();
-        File mapEntryFile = new File(RES_FOLDER + "file3.java");
+        File mapEntryFile = new File(RES_FOLDER + "file3.yaml");
         anotherDataFileJAVA.createNewFile();
 
         var testMap = new HashMap<String, Object>();
@@ -51,21 +51,21 @@ class DifferTest {
 
     @AfterAll
     static void afterAll() {
-        Path emptyJava = Path.of(RES_FOLDER + "file1.java");
+        Path emptyJava = Path.of(RES_FOLDER + "file1.yaml");
         emptyJava.toFile().delete();
-        Path dataJava = Path.of(RES_FOLDER + "file2.java");
+        Path dataJava = Path.of(RES_FOLDER + "file2.yaml");
         dataJava.toFile().delete();
         Path emptyYaml = Path.of(RES_FOLDER + "file1.yaml");
         emptyYaml.toFile().delete();
         Path dataYaml = Path.of(RES_FOLDER + "file2.yaml");
         dataYaml.toFile().delete();
-        Path data2 = Path.of(RES_FOLDER + "file3.java");
+        Path data2 = Path.of(RES_FOLDER + "file3.yaml");
         data2.toFile().delete();
     }
 
     @Test
     void emptyFormatTest() throws Exception {
-        assertThat(Differ.generate(RES_FOLDER + "file1.java", RES_FOLDER + "file2.java")).
+        assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "stylish.tst")));
         assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "stylish.tst")));
@@ -73,7 +73,7 @@ class DifferTest {
 
     @Test
     void plainFormatTest() throws Exception {
-        assertThat(Differ.generate(RES_FOLDER + "file1.java", RES_FOLDER + "file2.java", "plain")).
+        assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "plain")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "plain.tst")));
         assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "plain")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "plain.tst")));
@@ -81,7 +81,7 @@ class DifferTest {
 
     @Test
     void stylishFormatTest() throws Exception {
-        assertThat(Differ.generate(RES_FOLDER + "file1.java", RES_FOLDER + "file2.java", "stylish")).
+        assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "stylish")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "stylish.tst")));
         assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "stylish")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "stylish.tst")));
@@ -89,7 +89,7 @@ class DifferTest {
 
     @Test
     void jsonFormatTest() throws Exception {
-        assertThat(Differ.generate(RES_FOLDER + "file1.java", RES_FOLDER + "file2.java", "json")).
+        assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "json")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "json.tst")));
         assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "json")).
                 isEqualTo(Files.readString(Path.of(RES_FOLDER + "json.tst")));

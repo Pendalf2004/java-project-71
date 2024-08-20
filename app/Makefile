@@ -40,11 +40,11 @@ help:
 version:
 	./build/install/app/bin/app -V
 run-default:
-	./build/install/app/bin/app /home/john/gitDir/java-project-71/app/src/main/resources/file1.java /home/john/gitDir/java-project-71/app/src/main/resources/file2.java
+	./build/install/app/bin/app /home/john/gitDir/java-project-71/app/src/main/resources/file1.yaml /home/john/gitDir/java-project-71/app/src/main/resources/file2.yaml
 run-plain:
-	./build/install/app/bin/app /home/john/gitDir/java-project-71/app/src/main/resources/file1.java /home/john/gitDir/java-project-71/app/src/main/resources/file2.java -f=plain
+	./build/install/app/bin/app /home/john/gitDir/java-project-71/app/src/main/resources/file1.yaml /home/john/gitDir/java-project-71/app/src/main/resources/file2.yaml -f=plain
 run-json:
-	./build/install/app/bin/app /home/john/gitDir/java-project-71/app/src/main/resources/file1.java /home/john/gitDir/java-project-71/app/src/main/resources/file2.java -f=json
+	./build/install/app/bin/app /home/john/gitDir/java-project-71/app/src/main/resources/file1.yaml /home/john/gitDir/java-project-71/app/src/main/resources/file2.yaml -f=json
 
 ##test:
 ##	./gradlew test
