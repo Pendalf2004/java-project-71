@@ -8,6 +8,7 @@ Three output formats are available: stylish(default), plain, json.
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/486235e1928faf00551b/maintainability)](https://codeclimate.com/github/Pendalf2004/java-project-71/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/486235e1928faf00551b/test_coverage)](https://codeclimate.com/github/Pendalf2004/java-project-71/test_coverage)
+![GitHub Actions workflow](https://github.com/Pendalf2004/java-project-71/actions/workflows/gradle.yml/badge.svg)
 
 `make run-dist` to launch
 
