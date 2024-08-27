@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class DataCompare {
+final public class DataCompare {
     public enum STATUS {
         UNCHANGED,
         REMOVED,
