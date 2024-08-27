@@ -1,6 +1,10 @@
 ## File diff tool
 
-This console app allows to compare 2 files and output the differences.
+This console app allows to compare 2 files and output the differences. 
+Supported formats are '.java', '.yaml' and '.json'.
+App shows changes (if any) in values and properties specified in given files. 
+Three output formats are available: stylish(default), plain, json.
+
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/486235e1928faf00551b/maintainability)](https://codeclimate.com/github/Pendalf2004/java-project-71/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/486235e1928faf00551b/test_coverage)](https://codeclimate.com/github/Pendalf2004/java-project-71/test_coverage)

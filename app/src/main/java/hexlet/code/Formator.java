@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Formator {
 
-    public static String getString(Map<String, Fields> diffMap, String format) throws IOException {
+    public static String getString(Map<String, DataCompare> diffMap, String format) throws IOException {
         switch (format) {
             case "plain" -> {
                 return Plain.form(diffMap);

@@ -1,12 +1,13 @@
 package hexlet.code.formats;
 
+import hexlet.code.DataCompare;
 import hexlet.code.Differ;
-import hexlet.code.Fields;
+
 import java.util.Map;
 import java.util.Set;
 
 public class Plain {
-    public static String form(Map<String, Fields> inputMap) {
+    public static String form(Map<String, DataCompare> inputMap) {
         StringBuilder plainString = new StringBuilder();
         inputMap.keySet()
                 .stream()

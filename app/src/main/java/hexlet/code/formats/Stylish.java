@@ -1,13 +1,13 @@
 package hexlet.code.formats;
 
+import hexlet.code.DataCompare;
 import hexlet.code.Differ;
-import hexlet.code.Fields;
 import hexlet.code.Parser;
 import java.util.Map;
 
 public class Stylish {
 
-    public static String form(Map<String, Fields> inputMap) {
+    public static String form(Map<String, DataCompare> inputMap) {
         StringBuilder stylishString = new StringBuilder("{\n");
         inputMap.keySet()
                 .stream()
