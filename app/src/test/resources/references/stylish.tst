@@ -1,5 +1,5 @@
 {
-  + file: {numbers=[1, 2, 3], host=hexlet.io, timeout=20, verbose=true}
+  + file: null
   + host: hexlet.io
   + numbers: [1, 2, 3]
   + verbose: false
