@@ -31,26 +31,49 @@ class DifferTest {
     }
 
     @Test
-    void emptyFormatTest() throws Exception {
+    void emptyFormatYamlTest() throws Exception {
         assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml")).
                 isEqualTo(resultStylish);
     }
 
     @Test
-    void plainFormatTest() throws Exception {
+    void emptyFormatJsonTest() throws Exception {
+        assertThat(Differ.generate(RES_FOLDER + "file1.json", RES_FOLDER + "file2.json")).
+                isEqualTo(resultStylish);
+    }
+
+
+    @Test
+    void plainFormatYamlTest() throws Exception {
         assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "plain")).
+                isEqualTo(resultPlain);
+    }
+    @Test
+    void plainFormatJsonTest() throws Exception {
+        assertThat(Differ.generate(RES_FOLDER + "file1.json", RES_FOLDER + "file2.json", "plain")).
                 isEqualTo(resultPlain);
     }
 
     @Test
-    void stylishFormatTest() throws Exception {
+    void stylishFormatYamlTest() throws Exception {
         assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "stylish")).
+                isEqualTo(resultStylish);
+    }
+
+    @Test
+    void stylishFormatJsonTest() throws Exception {
+        assertThat(Differ.generate(RES_FOLDER + "file1.json", RES_FOLDER + "file2.json", "stylish")).
                 isEqualTo(resultStylish);
     }
 
     @Test
     void jsonFormatTest() throws Exception {
         assertThat(Differ.generate(RES_FOLDER + "file1.json", RES_FOLDER + "file2.json", "json")).
+                isEqualTo(resultJson);
+    }
+    @Test
+    void jsonFormatYamlTest() throws Exception {
+        assertThat(Differ.generate(RES_FOLDER + "file1.yaml", RES_FOLDER + "file2.yaml", "json")).
                 isEqualTo(resultJson);
     }
 }
